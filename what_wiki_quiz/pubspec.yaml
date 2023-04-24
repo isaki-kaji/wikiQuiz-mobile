@@ -1,0 +1,30 @@
+name: what_wiki_quiz
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.9.0
+  cloud_firestore: ^4.5.1
+  flutter_riverpod: ^2.3.4
+  google_fonts: ^4.0.3
+  animated_text_kit: ^4.2.2
+  url_launcher: ^6.1.10
+  circular_countdown_timer: ^0.2.3
+  awesome_dialog: ^3.0.2
+  searchfield: ^0.7.5
+  show_up_animation: ^2.0.0
+  image_picker: ^0.8.7+3
+  firebase_auth: ^4.4.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/pngwing.com.png
