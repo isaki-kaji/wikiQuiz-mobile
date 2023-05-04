@@ -6,6 +6,7 @@ class RankingDataPage extends StatelessWidget {
   RankingDataPage(this.title, this.rankMap);
 
   //Todo:どのようにデータを順位付けして取り出すかを考える。
+  //Todo:いつになるかは分からない。
 
   @override
   Widget build(BuildContext context) {
