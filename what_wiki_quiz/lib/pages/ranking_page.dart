@@ -5,6 +5,8 @@ class RankingDataPage extends StatelessWidget {
   Map<String, dynamic> rankMap;
   RankingDataPage(this.title, this.rankMap);
 
+  //Todo:どのようにデータを順位付けして取り出すかを考える。
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
