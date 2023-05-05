@@ -7,6 +7,7 @@ class RankingDataPage extends StatelessWidget {
 
   //Todo:どのようにデータを順位付けして取り出すかを考える。
   //Todo:いつになるかは分からない。
+  //Todo:1ドキュメント内で行う。
 
   @override
   Widget build(BuildContext context) {
