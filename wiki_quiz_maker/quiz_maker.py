@@ -1,3 +1,5 @@
+#完成版が見つからない
+
 import wikipedia
 import re
 import MeCab
