@@ -15,10 +15,8 @@ class RankingDataPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: rankMap.length,
         itemBuilder: (context, index) {
-          final keyList = rankMap.keys.toList();
-          final order = keyList.indexOf(keyList[index]);
-          return Column(
-            children: [Text(rankMap[index][key])],
+          return ListTile(
+            leading: Text((index + 1).toString()),
           );
         },
       ),
