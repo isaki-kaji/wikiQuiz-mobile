@@ -27,7 +27,8 @@ class ViewModel extends ChangeNotifier {
   List<String> shuffledList = [];
   List<String> textList = [];
   Map<String, String> urlMap = {};
-  Map<String, dynamic> rankMap = {};
+  List mapValues = [];
+  late Map sortedMap;
 
   Future<void> addRank() async {
     //todo:自己ベスト更新したらってやつをつける
@@ -63,12 +64,41 @@ class ViewModel extends ChangeNotifier {
     db.collection("Users").doc(uid).set({"name": "なまえ", "selfIntro": "こんにちは!"});
   }
 
-  Future<void> getRanking(Map<String, dynamic> rankMap) async {
+  Future<void> getRanking() async {
     await db.collection("Ranking").doc(playCategory).get().then(
       (DocumentSnapshot doc) {
-        rankMap = doc.data() as Map<String, dynamic>;
+        Map<String, dynamic> rankMap = doc.data() as Map<String, dynamic>;
+        mapValues = rankMap.values.toList();
+        makeRank(mapValues);
       },
     );
+  }
+
+  void makeRank(map) {
+    Map<String, int> resultMap =
+        mapValues.fold({}, (Map<String, int> map, item) {
+      String name = item["name"];
+      int time = item["time"];
+      map[name] = time;
+      return map;
+    });
+
+    List<int> values = resultMap.values.toList();
+    values.sort();
+    List<String> sortedKeys = [];
+    for (int value in values) {
+      for (String key in resultMap.keys) {
+        if (resultMap[key] == value && !sortedKeys.contains(key)) {
+          sortedKeys.add(key);
+          break;
+        }
+      }
+    }
+    Map<String, int> sortedMap = {};
+    for (String key in sortedKeys) {
+      sortedMap[key] = resultMap[key]!;
+    }
+    print(sortedMap);
   }
 
   Future<void> getList(String refCategory) async {

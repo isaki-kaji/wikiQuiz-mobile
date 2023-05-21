@@ -10,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:what_wiki_quiz/pages/ranking_page.dart';
 import 'package:what_wiki_quiz/text_style.dart';
 import 'package:what_wiki_quiz/view_model.dart';
 
@@ -117,14 +116,14 @@ class RankingCard extends ConsumerWidget {
     return GestureDetector(
       onTap: () async {
         viewModelProvider.playCategory = category;
-        await viewModelProvider.getRanking(viewModelProvider.rankMap);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                RankingDataPage(category, viewModelProvider.rankMap),
-          ),
-        );
+        await viewModelProvider.getRanking();
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) =>
+        //         RankingDataPage(category, viewModelProvider.rankMap),
+        //   ),
+        // );
       },
       child: SizedBox(
         height: 60,
