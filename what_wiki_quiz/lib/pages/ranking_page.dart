@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class RankingDataPage extends StatelessWidget {
   String title;
-  Map<String, dynamic> rankMap;
+  Map rankMap;
   RankingDataPage(this.title, this.rankMap);
 
   //Todo:どのようにデータを順位付けして取り出すかを考える。
@@ -18,8 +18,8 @@ class RankingDataPage extends StatelessWidget {
           final keyList = rankMap.keys.toList();
           final order = keyList.indexOf(keyList[index]);
           return Column(
-              // children: [Text(rankMap[index]["time"])],
-              );
+            children: [Text(rankMap[index][key])],
+          );
         },
       ),
     );

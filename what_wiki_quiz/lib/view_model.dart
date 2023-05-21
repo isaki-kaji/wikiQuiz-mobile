@@ -28,7 +28,7 @@ class ViewModel extends ChangeNotifier {
   List<String> textList = [];
   Map<String, String> urlMap = {};
   List mapValues = [];
-  late Map sortedMap;
+  Map sortedMap = {};
 
   Future<void> addRank() async {
     //todo:自己ベスト更新したらってやつをつける
@@ -98,7 +98,6 @@ class ViewModel extends ChangeNotifier {
     for (String key in sortedKeys) {
       sortedMap[key] = resultMap[key]!;
     }
-    print(sortedMap);
   }
 
   Future<void> getList(String refCategory) async {
