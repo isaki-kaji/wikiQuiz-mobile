@@ -98,7 +98,6 @@ class ViewModel extends ChangeNotifier {
     for (String key in sortedKeys) {
       sortedMap[key] = resultMap[key]!;
     }
-
     print(sortedMap);
   }
 
