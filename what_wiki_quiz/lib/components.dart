@@ -122,7 +122,7 @@ class RankingCard extends ConsumerWidget {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                RankingDataPage(category, viewModelProvider.sortedMap),
+                RankingDataPage(category, viewModelProvider.resultList),
           ),
         );
       },
