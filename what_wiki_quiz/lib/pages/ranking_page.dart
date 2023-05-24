@@ -5,8 +5,6 @@ class RankingDataPage extends StatelessWidget {
   List<Map<String, dynamic>>? rankList;
   RankingDataPage(this.title, this.rankList);
 
-  //Todo:どのようにデータを順位付けして取り出すかを考える。
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +15,33 @@ class RankingDataPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: rankList?.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: Text((index + 1).toString()),
-            title: Text(rankList![index]["name"]),
+          return Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: Colors.purple),
+              ),
+            ),
+            child: ListTile(
+              leading: Text((index + 1).toString()),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(rankList![index]["name"]),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Text("${(rankList![index]["time"] / 60).truncate()}:"),
+                        Text(
+                          ((rankList![index]["time"] % 60).toString())
+                              .padLeft(2, '0'),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           );
         },
       ),
