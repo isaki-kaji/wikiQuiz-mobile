@@ -14,7 +14,7 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  bool isVisible = false;
+  bool _isVisible = false;
   Future<bool> _willPopCallback() async {
     return false;
   }
@@ -24,7 +24,7 @@ class _ResultPageState extends State<ResultPage> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       setState(() {
-        isVisible = true;
+        _isVisible = true;
       });
     });
   }
@@ -36,7 +36,7 @@ class _ResultPageState extends State<ResultPage> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: (isVisible)
+          title: (_isVisible)
               ? Center(
                   child: AnimatedTextKit(
                     totalRepeatCount: 10,
@@ -47,7 +47,7 @@ class _ResultPageState extends State<ResultPage> {
                   ),
                 )
               : Container(),
-          actions: [(isVisible) ? AddRankButton() : Container()],
+          actions: [(_isVisible) ? AddRankButton() : Container()],
         ),
         body: SingleChildScrollView(
           child: Column(children: [
@@ -84,13 +84,13 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             const SizedBox(height: 20),
-            (isVisible) ? ResultButton("もういちど挑戦", "/prepare") : Container(),
+            (_isVisible) ? ResultButton("もういちど挑戦", "/prepare") : Container(),
             const SizedBox(height: 40),
-            (isVisible) ? ResultButton("ほかの問題に挑戦", "/") : Container(),
+            (_isVisible) ? ResultButton("ほかの問題に挑戦", "/") : Container(),
             const SizedBox(height: 30),
-            (isVisible) ? const Text("出題記事一覧") : Container(),
+            (_isVisible) ? const Text("出題記事一覧") : Container(),
             const SizedBox(height: 10),
-            (isVisible) ? UrlList() : Container(),
+            (_isVisible) ? UrlList() : Container(),
             const SizedBox(height: 20)
           ]),
         ),
