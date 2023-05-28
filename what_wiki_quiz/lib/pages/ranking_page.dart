@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class RankingDataPage extends StatelessWidget {
-  String title;
-  List<Map<String, dynamic>>? rankList;
-  RankingDataPage(this.title, this.rankList);
+  final String _title;
+  List<Map<String, dynamic>>? _rankList;
+  RankingDataPage(this._title, this._rankList);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(_title),
         backgroundColor: Colors.purple,
       ),
       body: ListView.builder(
-        itemCount: rankList?.length,
+        itemCount: _rankList?.length,
         itemBuilder: (context, index) {
           return Container(
             decoration: const BoxDecoration(
@@ -26,14 +26,14 @@ class RankingDataPage extends StatelessWidget {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(rankList![index]["name"]),
+                  Text(_rankList![index]["name"]),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        Text("${(rankList![index]["time"] / 60).truncate()}:"),
+                        Text("${(_rankList![index]["time"] / 60).truncate()}:"),
                         Text(
-                          ((rankList![index]["time"] % 60).toString())
+                          ((_rankList![index]["time"] % 60).toString())
                               .padLeft(2, '0'),
                         ),
                       ],
